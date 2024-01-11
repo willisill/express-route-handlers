@@ -24,7 +24,25 @@ const {
 const express = require('express');
 const app = express();
 
-// Your code here 
+app.use(express.json())
+
+//Get all artists
+
+app.get('/artists', (req, res) => {
+  res.json(getAllArtists())
+})
+
+//Get the latest artist
+
+app.get('/artists/latest', (req, res) => {
+  res.json(getLatestArtist())
+})
+
+//Get artist by
+
+app.get('/artists/:artistId', (req, res) => {
+  res.json(getAlbumsByArtistId(artistId))
+})
 
 // DO NOT MODIFY
 if (require.main === module) {
